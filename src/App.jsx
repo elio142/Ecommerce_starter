@@ -1,13 +1,14 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 import Navbar from './components/Navbar'
+import Featured from './components/featured'
+import Footer from './components/footer'
 
 function App() {
   return (
-    <div className="max-w-7xl mx-auto">
+    <div>
       <Navbar />
+      <Featured />
+      <Footer />
     </div>
   );
 }
