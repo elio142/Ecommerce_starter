@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Facebook, Twitter, Instagram } from "lucide-react";
+import { Facebook, Twitter, Instagram } from "lucide-react";
 
 const Footer = () => {
     return (
@@ -23,10 +23,10 @@ const Footer = () => {
                 {/* Contact */}
                 <div>
                     <h3 className="text-white text-lg font-semibold mb-4">Contact</h3>
-                    <ul className="space-y-2">
-                        <li className="text-gray-400 flex items-center gap-2"><Mail className="text-gray-400 w-4 h-4" /> support@shophub.com</li>
-                        <li className="text-gray-400 flex items-center gap-2"><Phone className="text-gray-400 w-4 h-4" /> (555) 123-4567</li>
-                        <li className="text-gray-400 flex items-center gap-2"><MapPin className="text-gray-400 w-4 h-4" /> 123 Shop Street, City, Country</li>
+                    <ul className="space-y-2 text-gray-400">
+                        <li>Email: support@shophub.com</li>
+                        <li>Phone: (555) 123-4567</li>
+                        <li>Address: 123 Shop Street, City, Country</li>
                     </ul>
                 </div>
 
