@@ -1,20 +1,26 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState } from 'react'
 import Navbar from './components/Navbar'
-import Hero from './components/hero'
 import Footer from './components/footer'
 import SignIn from './pages/signIn'
-import FeaturedCategories from './components/Homepage/FeaturedCategories'
-import FeaturedProducts from './components/Homepage/FeaturedProducts'
+import SignUp from './pages/signUp'
+import Categories from './pages/Categories';
+import Contact from './pages/Contact';
+import Home from './pages/home';
+
 
 function App() {
   return (
     <div>
       <Navbar />
-      <Hero />
-      <FeaturedCategories/>
-      <FeaturedProducts/>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
+      </Routes>
       <Footer />
-      <SignIn />
     </div>
   );
 }
