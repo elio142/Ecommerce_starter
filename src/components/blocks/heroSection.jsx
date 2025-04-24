@@ -1,4 +1,3 @@
-// src/components/Hero.jsx
 import React from "react";
 import { Link } from "react-router-dom";
 import { ShoppingBag } from "lucide-react";
@@ -7,10 +6,12 @@ export default function Hero() {
   return (
     <section
       className="relative bg-cover bg-center h-[80vh] md:h-[600px]"
-      style={{ backgroundImage: "url('/images/hero-bg.jpg')" }}
+      style={{
+        backgroundImage: "url('https://images.unsplash.com/photo-1441986300917-64674bd600d8')",
+      }}
     >
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-50" />
+      <div className="absolute inset-0 bg-black/50" />
 
       {/* Content */}
       <div className="relative max-w-7xl flex flex-col items-start justify-center h-full mx-auto px-4">

@@ -1,11 +1,10 @@
-import Navbar from "./components/common/Navbar";
-import Hero from "./components/hero";
-import Footer from "./components/common/Footer";
 import SignIn from "./pages/signIn";
-import FeaturedCategories from "./components/Cards/FeaturedCategories";
-import FeaturedProducts from "./components/Cards/FeaturedProducts";
 import Categories from "./pages/Categories";
-
+import Hero from "./components/blocks/heroSection";
+import Navbar from "./components/common/Navbar";
+import FeaturedCategories from "./components/blocks/FeaturedCategories";
+import FeaturedProducts from "./components/blocks/FeaturedProducts";
+import Footer from "./components/common/Footer";
 function App() {
   return (
     <div>
@@ -13,6 +12,7 @@ function App() {
       <Hero />
       <FeaturedCategories />
       <FeaturedProducts />
+
       <Footer />
     </div>
   );

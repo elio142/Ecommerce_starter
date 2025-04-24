@@ -1,5 +1,5 @@
 import React from "react";
-import ProductCard from "../Product";
+import ProductCard from "../UI/ProductCard";
 import { initialProducts } from "../../lib/data";
 
 export default function FeaturedProducts() {
