@@ -1,6 +1,6 @@
 import Navbar from "./components/common/Navbar";
 import Hero from "./components/hero";
-import Footer from "./components/common/footer";
+import Footer from "./components/common/Footer";
 import SignIn from "./pages/signIn";
 import FeaturedCategories from "./components/Cards/FeaturedCategories";
 import FeaturedProducts from "./components/Cards/FeaturedProducts";
