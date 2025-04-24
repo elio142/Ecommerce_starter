@@ -43,6 +43,6 @@ const initialProducts = [
   }
 ];
 
-const categories = [{ id: 1, name: 'Electronics', image_url: "https://images.unsplash.com/photo-1498049794561-7780e7231661" }, { id: 2, name: 'Fashion', image_url: "https://images.unsplash.com/photo-1445205170230-053b83016050" }, { id: 3, name: 'Home&living', image_url: "https://images.unsplash.com/photo-1484101403633-562f891dc89a" }];
+const categories = [{id:1,name:'Electronics',image_url:"https://images.unsplash.com/photo-1498049794561-7780e7231661"}, {id:2, name:'Fashion',image_url:"https://images.unsplash.com/photo-1445205170230-053b83016050"}, {id:3,name:'Home&living',image_url:"https://images.unsplash.com/photo-1484101403633-562f891dc89a"}];
 
-export { initialProducts, categories }
+export {initialProducts, categories}
