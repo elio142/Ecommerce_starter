@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { useState } from 'react'
 import Navbar from './components/Navbar'
 import Footer from './components/footer'
@@ -18,7 +18,6 @@ function App() {
         <Route path="/categories" element={<Categories />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
       </Routes>
       <Footer />
     </div>
