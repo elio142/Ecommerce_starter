@@ -1,18 +1,20 @@
 import SignIn from "./pages/signIn";
 import Categories from "./pages/Categories";
-import Hero from "./components/blocks/heroSection";
+import Contact from "./pages/Contact"
 import Navbar from "./components/common/Navbar";
-import FeaturedCategories from "./components/blocks/FeaturedCategories";
-import FeaturedProducts from "./components/blocks/FeaturedProducts";
 import Footer from "./components/common/Footer";
+import Home from "./pages/home"
+import { Routes,Route } from "react-router-dom";
 function App() {
   return (
     <div>
       <Navbar />
-      <Hero />
-      <FeaturedCategories />
-      <FeaturedProducts />
-
+      <Routes>
+        <Route path="/" element={<Home />}/>
+        <Route path="/Categories" element={<Categories />}/>
+        <Route path="/contact" element={<Contact />}/>
+        <Route path="/SignIn" element={<SignIn />}/>
+      </Routes>
       <Footer />
     </div>
   );
