@@ -1,7 +1,10 @@
+import { useEffect, useState } from "react";
 import { initialProducts } from "../../lib/data";
 
-export default function ProductCard({ id, product }) {
+export default function ProductCard({ id, product, onRemoveFavorite }) {
   let productData;
+  const [isWishlisted, setIsWishlisted] = useState(false);
+
 
   if (product) {
     productData = product;
@@ -14,6 +17,33 @@ export default function ProductCard({ id, product }) {
     return <div className="text-red-500">Product not found.</div>;
   }
 
+
+  useEffect(() => {
+    const storedWishlist = localStorage.getItem("wishlist");
+    if (storedWishlist) {
+      const wishlistArray = JSON.parse(storedWishlist);
+      setIsWishlisted(wishlistArray.includes(productData.id));
+    }
+
+  }, [isWishlisted]);
+
+
+  const handleWishlistToggle = () => {
+    const storedWishlist = localStorage.getItem("wishlist");
+    let wishlistArray = storedWishlist ? JSON.parse(storedWishlist) : [];
+
+    if (isWishlisted) {
+      wishlistArray = wishlistArray.filter(id => id !== productData.id);
+      onRemoveFavorite(productData.id);
+    } else {
+      wishlistArray.push(productData.id);
+    }
+
+    localStorage.setItem('wishlist', JSON.stringify(wishlistArray));
+    setIsWishlisted(!isWishlisted);
+  }
+
+
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden group">
       <div className="relative h-48">
@@ -22,7 +52,7 @@ export default function ProductCard({ id, product }) {
           alt={productData.name}
           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
         />
-        <button className="absolute top-2 right-2 p-2 rounded-full bg-white shadow-md hover:bg-gray-100">
+        <button onClick={handleWishlistToggle} className="absolute top-2 right-2 p-2 rounded-full bg-white shadow-md hover:bg-gray-100">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -33,7 +63,7 @@ export default function ProductCard({ id, product }) {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="lucide lucide-heart w-5 h-5 text-gray-600"
+            className={`lucide lucide-heart w-5 h-5 cursor-pointer ${isWishlisted ? 'fill-red-500 text-red-500' : 'text-gray-600'}`}
           >
             <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
           </svg>
@@ -44,7 +74,7 @@ export default function ProductCard({ id, product }) {
         <p className="text-gray-600 text-sm mb-4">{productData.description}</p>
         <div className="flex items-center justify-between">
           <span className="text-lg font-bold">${productData.price}</span>
-          <button className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+          <button className="cursor-pointer px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
             Add to Cart
           </button>
         </div>
