@@ -3,7 +3,6 @@ import { useState } from 'react'
 import Navbar from './components/Navbar'
 import Footer from './components/footer'
 import SignIn from './pages/signIn'
-import SignUp from './pages/signUp'
 import Categories from './pages/Categories';
 import Contact from './pages/Contact';
 import Home from './pages/home';
