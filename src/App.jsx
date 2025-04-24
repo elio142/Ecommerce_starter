@@ -1,20 +1,19 @@
-import { useState } from 'react'
-import Navbar from './components/Navbar'
-import Hero from './components/hero'
-import Footer from './components/footer'
-import SignIn from './pages/signIn'
-import FeaturedCategories from './components/Homepage/FeaturedCategories'
-import FeaturedProducts from './components/Homepage/FeaturedProducts'
+import Navbar from "./components/common/Navbar";
+import Hero from "./components/hero";
+import Footer from "./components/common/footer";
+import SignIn from "./pages/signIn";
+import FeaturedCategories from "./components/Cards/FeaturedCategories";
+import FeaturedProducts from "./components/Cards/FeaturedProducts";
+import Categories from "./pages/Categories";
 
 function App() {
   return (
     <div>
       <Navbar />
       <Hero />
-      <FeaturedCategories/>
-      <FeaturedProducts/>
+      <FeaturedCategories />
+      <FeaturedProducts />
       <Footer />
-      <SignIn />
     </div>
   );
 }
