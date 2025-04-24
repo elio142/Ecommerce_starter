@@ -3,7 +3,7 @@ import { Search, Heart, ShoppingCart, User } from 'lucide-react';
 
 const Navbar = () => {
     return (
-        <nav className="bg-white">
+        <nav className="bg-white shadow-md">
             {/* inner wrapper: centers content, adds padding */}
             <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between h-16">
 
