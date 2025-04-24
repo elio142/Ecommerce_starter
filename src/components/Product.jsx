@@ -1,6 +1,16 @@
+import { useState, useEffect } from "react";
 import { initialProducts } from "../lib/data";
 
 export default function Product({ id }) {
+    const [wishlisted, setWishlisted] = useState(false);
+    const [wishlistBtnStyle, setWishlistBtnStyle] = useState("lucide lucide-heart w-5 h-5 text-gray-600");
+
+    useEffect(() => {setWishlistBtnStyle(
+        !wishlisted ?
+            "text-gray-600" :
+            "fill-red-500 text-red-500"
+    )}, [wishlisted]);
+
     // Convert the prop 'id' to a number for comparison
     const productId = parseInt(id, 10);
 
@@ -14,8 +24,8 @@ export default function Product({ id }) {
                 alt={product.name}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
             />
-            <button className="absolute top-2 right-2 p-2 rounded-full bg-white shadow-md hover:bg-gray-100">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-heart w-5 h-5 text-gray-600">
+            <button onClick={() => setWishlisted(!wishlisted)} className="cursor-pointer absolute top-2 right-2 p-2 rounded-full bg-white shadow-md hover:bg-gray-100">
+                <svg className={`lucide lucide-heart w-5 h-5 ${wishlistBtnStyle}`} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path
                         d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"
                     />
