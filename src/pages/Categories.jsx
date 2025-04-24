@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { initialProducts } from "../lib/data";
-import Product from "../components/Product";
+import Product from "../components/UI/ProductCard";
 
 export default function Categories() {
     const [query, setQuery] = useState("");
