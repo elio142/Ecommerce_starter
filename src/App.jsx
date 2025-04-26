@@ -4,20 +4,25 @@ import Contact from "./pages/Contact"
 import Navbar from "./components/common/Navbar";
 import Footer from "./components/common/Footer";
 import Home from "./pages/home"
-import { Routes,Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Favorites from "./pages/Favorites";
+import Cart from "./pages/Cart";
+import CartProvider from "./context/CartContext";
 function App() {
   return (
     <div>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/Categories" element={<Categories />}/>
-        <Route path="/contact" element={<Contact />}/>
-        <Route path="/favorites" element={<Favorites />} />
-        <Route path="/SignIn" element={<SignIn />}/>
-      </Routes>
-      <Footer />
+      <CartProvider>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Categories" element={<Categories />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/SignIn" element={<SignIn />} />
+        </Routes>
+        <Footer />
+      </CartProvider>
     </div>
   );
 }

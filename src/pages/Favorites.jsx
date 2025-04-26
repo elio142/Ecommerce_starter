@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ProductCard from "../components/UI/ProductCard";
 import { initialProducts } from "../lib/data";
-import NoFavoritesYet from "../components/blocks/NoFavoritesYet";
+import EmptyFavorites from "../components/blocks/EmptyFavorites";
 
 export default function Favorites() {
     const [wishlistArray, setWishlistArray] = useState([]);
@@ -20,7 +20,7 @@ export default function Favorites() {
     return <div>
         <main className="flex-grow">
             {wishlistArray.length === 0 ? (
-                <NoFavoritesYet />
+                <EmptyFavorites />
             ) : (
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                     <h1 className="text-3xl font-bold mb-8">Your Favorites</h1>

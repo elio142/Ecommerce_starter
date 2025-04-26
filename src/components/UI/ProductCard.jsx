@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { initialProducts } from "../../lib/data";
+import { useCart } from "../../hooks/useCart";
 
 export default function ProductCard({ id, product, onRemoveFavorite }) {
   let productData;
   const [isWishlisted, setIsWishlisted] = useState(false);
 
+  // get .addItem method from useCart
+  const { addItem } = useCart();
 
   if (product) {
     productData = product;
@@ -74,7 +77,9 @@ export default function ProductCard({ id, product, onRemoveFavorite }) {
         <p className="text-gray-600 text-sm mb-4">{productData.description}</p>
         <div className="flex items-center justify-between">
           <span className="text-lg font-bold">${productData.price}</span>
-          <button className="cursor-pointer px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+          <button
+            className="cursor-pointer px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            onClick={() => addItem(productData.id)}>
             Add to Cart
           </button>
         </div>
