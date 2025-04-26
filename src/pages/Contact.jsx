@@ -1,73 +1,186 @@
+// src/components/Contact.jsx
+
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+import { Mail, Phone, MapPin } from "lucide-react";
+
 export default function Contact() {
-    return <main class="flex-grow">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <h1 class="text-4xl font-bold text-center mb-12">Contact Us</h1>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div><h2 class="text-2xl font-semibold mb-6">Get in Touch</h2>
-                    <form class="space-y-6">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                            <input type="text" id="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" required="" value="" />
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                            <input type="email" id="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" required="" value="" />
-                        </div>
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                            <textarea id="message" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" required="" style={{height: 133 + "px;"}}>
-                            </textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Send Message</button>
-                    </form>
-                </div>
+  const form = useRef();
+  const [sending, setSending] = useState(false);
+  const [errors, setErrors] = useState({});
+
+  const validate = ({ user_name, user_email, message, honey }) => {
+    const errs = {};
+    if (honey) errs.honey = "Bot detected";
+    if (!user_name.trim()) errs.user_name = "Name is required";
+    if (!user_email.trim()) {
+      errs.user_email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(user_email)) {
+      errs.user_email = "Invalid email format";
+    }
+    if (!message.trim()) errs.message = "Message is required";
+    else if (message.length > 1000)
+      errs.message = "Message must be under 1000 characters";
+    return errs;
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    if (sending) return;
+
+    const data = {
+      user_name: form.current.user_name.value,
+      user_email: form.current.user_email.value,
+      message: form.current.message.value,
+      honey: form.current.honey.value,
+    };
+
+    const errs = validate(data);
+    if (Object.keys(errs).length) {
+      setErrors(errs);
+      return;
+    }
+
+    setErrors({});
+    setSending(true);
+
+    emailjs
+      .sendForm(
+        "service_5p2nj9m",    // your EmailJS service ID
+        "elio123",            // your EmailJS template ID
+        form.current,
+        "kLGuKHDTc--RzYINt"   // your EmailJS public key
+      )
+      .then(
+        () => {
+          alert("Message sent successfully!");
+          form.current.reset();
+        },
+        () => {
+          alert("Something went wrong. Please try again later.");
+        }
+      )
+      .finally(() => setSending(false));
+  };
+
+  return (
+    <main className="flex-grow">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h1 className="text-4xl font-bold text-center mb-12">Contact Us</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          
+          {/* ——— Form Column ——— */}
+          <div>
+            <h2 className="text-2xl font-semibold mb-6">Get in Touch</h2>
+            <form ref={form} onSubmit={sendEmail} className="space-y-6">
+              {/* Honeypot (hidden) */}
+              <input type="text" name="honey" autoComplete="off" tabIndex="-1" className="hidden" />
+
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  name="user_name"
+                  id="name"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                />
+                {errors.user_name && (
+                  <p className="text-red-600 text-sm mt-1">{errors.user_name}</p>
+                )}
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="user_email"
+                  id="email"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                />
+                {errors.user_email && (
+                  <p className="text-red-600 text-sm mt-1">{errors.user_email}</p>
+                )}
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                />
+                {errors.message && (
+                  <p className="text-red-600 text-sm mt-1">{errors.message}</p>
+                )}
+              </div>
+
+              <button
+                type="submit"
+                disabled={sending}
+                className={`w-full py-2 rounded-md text-white ${
+                  sending ? "bg-gray-400" : "bg-blue-600 hover:bg-blue-700"
+                }`}
+              >
+                {sending ? "Sending…" : "Send Message"}
+              </button>
+            </form>
+          </div>
+
+          {/* ——— Info Column ——— */}
+          <div>
+            <h2 className="text-2xl font-semibold mb-6">Contact Information</h2>
+            <div className="space-y-6">
+              <div className="flex items-start">
+                <Mail className="w-6 h-6 text-blue-600 mr-4" />
                 <div>
-                    <h2 class="text-2xl font-semibold mb-6">Contact Information</h2>
-                    <div class="space-y-6">
-                        <div class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail w-6 h-6 text-blue-600 mr-4">
-                                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                            </svg>
-                            <div>
-                                <h3 class="font-medium">Email</h3>
-                                <p class="text-gray-600">support@shophub.com</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone w-6 h-6 text-blue-600 mr-4">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                            </svg>
-                            <div>
-                                <h3 class="font-medium">Phone</h3>
-                                <p class="text-gray-600">(555) 123-4567</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin w-6 h-6 text-blue-600 mr-4">
-                                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                            <div>
-                                <h3 class="font-medium">Address</h3>
-                                <p class="text-gray-600">123 Shop Street<br/>City, Country</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-8">
-                        <h2 class="text-2xl font-semibold mb-6">Business Hours</h2>
-                        <div class="space-y-2">
-                            <p>
-                                <span class="font-medium">Monday - Friday:</span> 9:00 AM - 6:00 PM
-                            </p>
-                            <p><span class="font-medium">Saturday:</span> 10:00 AM - 4:00 PM</p>
-                            <p>
-                                <span class="font-medium">Sunday:</span> Closed
-                            </p>
-                        </div>
-                    </div>
+                  <h3 className="font-medium">Email</h3>
+                  <p className="text-gray-600">support@shophub.com</p>
                 </div>
+              </div>
+              <div className="flex items-start">
+                <Phone className="w-6 h-6 text-blue-600 mr-4" />
+                <div>
+                  <h3 className="font-medium">Phone</h3>
+                  <p className="text-gray-600">(555) 123-4567</p>
+                </div>
+              </div>
+              <div className="flex items-start">
+                <MapPin className="w-6 h-6 text-blue-600 mr-4" />
+                <div>
+                  <h3 className="font-medium">Address</h3>
+                  <p className="text-gray-600">
+                    123 Shop Street
+                    <br />
+                    City, Country
+                  </p>
+                </div>
+              </div>
             </div>
+            <div className="mt-8">
+              <h2 className="text-2xl font-semibold mb-6">Business Hours</h2>
+              <div className="space-y-2">
+                <p>
+                  <span className="font-medium">Monday – Friday:</span> 9:00 AM – 6:00 PM
+                </p>
+                <p>
+                  <span className="font-medium">Saturday:</span> 10:00 AM – 4:00 PM
+                </p>
+                <p>
+                  <span className="font-medium">Sunday:</span> Closed
+                </p>
+              </div>
+            </div>
+          </div>
+
         </div>
+      </div>
     </main>
+  );
 }
