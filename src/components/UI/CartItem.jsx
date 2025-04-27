@@ -1,21 +1,20 @@
 import { initialProducts } from "../../lib/data";
 import { useCart } from "../../hooks/useCart";
+import { useState } from "react";
 
 
-export default function CartItem({id, product}) {
+export default function CartItem({ item }) {
+    const { cartItems, removeItem, updateItemQuantity } = useCart();
+    const { id, quantity } = item;
 
-    const { removeItem, updateItemQuantity, totalItems, totalPrice } = useCart();
+    const productData = initialProducts.find((p) => p.id === parseInt(id, 10));
+    
+    function incrementItemCount() {
+        updateItemQuantity(id, quantity + 1);
+    }
 
-    let productData;
-
-    if (product) {
-        productData = product;
-    } else if (id) {
-        console.log(id);
-        const productId = parseInt(id, 10);
-        console.log(productId);
-
-        productData = initialProducts.find((p) => p.id === productId);
+    function decrementItemCount() {
+        updateItemQuantity(id, quantity - 1);
     }
 
 
@@ -35,12 +34,13 @@ export default function CartItem({id, product}) {
                             </svg>
                         </button>
                         <div className="flex items-center border rounded-md">
-                            <button className="p-2 hover:bg-gray-100"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-minus w-4 h-4">
-                                <path d="M5 12h14"></path>
-                            </svg>
+                            <button onClick={decrementItemCount} className="p-2 hover:bg-gray-100">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-minus w-4 h-4">
+                                    <path d="M5 12h14"></path>
+                                </svg>
                             </button>
-                            <span className="px-4 py-2 border-x">--</span>
-                            <button className="p-2 hover:bg-gray-100">
+                            <span className="px-4 py-2 border-x">{quantity}</span>
+                            <button onClick={incrementItemCount} className="p-2 hover:bg-gray-100">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-plus w-4 h-4">
                                     <path d="M5 12h14"></path>
                                     <path d="M12 5v14"></path>
@@ -48,7 +48,7 @@ export default function CartItem({id, product}) {
                             </button>
                         </div>
                     </div>
-                    <span className="text-lg font-semibold">${productData.price}</span>
+                    <span className="text-lg font-semibold">${(productData.price * quantity).toFixed(2)}</span>
                 </div>
             </div>
         </div>

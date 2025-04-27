@@ -8,6 +8,7 @@ import { Routes, Route } from "react-router-dom";
 import Favorites from "./pages/Favorites";
 import Cart from "./pages/Cart";
 import CartProvider from "./context/CartContext";
+import Checkout from "./pages/Checkout";
 function App() {
   return (
     <div>
@@ -20,6 +21,7 @@ function App() {
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/SignIn" element={<SignIn />} />
+          <Route path="/Checkout" element={<Checkout />} />
         </Routes>
         <Footer />
       </CartProvider>

@@ -1,4 +1,26 @@
+import { useEffect, useState } from "react";
+import { useCart } from "../../hooks/useCart";
+import { initialProducts } from "../../lib/data";
+
 export default function CheckoutSummary() {
+
+    const { cartItems } = useCart();
+    const [totalPrice, setTotalPrice] = useState('0.00');
+
+    useEffect(() => {
+        const calculatedTotalPrice = cartItems.reduce((total, item) => {
+            const product = initialProducts.find(p => p.id === item.id);
+            if (product) {
+                return total + product.price * item.quantity;
+            }
+            return total;
+        }, 0);
+
+        setTotalPrice(calculatedTotalPrice.toFixed(2));
+        console.log('Total Price Updated:', calculatedTotalPrice.toFixed(2));
+    }, [cartItems, initialProducts]);
+
+
     return (
         <div className="lg:col-span-4">
             <div className="bg-white p-6 shadow-sm rounded-lg">
@@ -6,7 +28,7 @@ export default function CheckoutSummary() {
                 <div className="space-y-4">
                     <div className="flex justify-between">
                         <span>Subtotal</span>
-                        <span>$149.98</span>
+                        <span>${totalPrice}</span>
                     </div>
                     <div className="flex justify-between">
                         <span>Shipping</span>
@@ -14,7 +36,7 @@ export default function CheckoutSummary() {
                     </div>
                     <div className="border-t pt-4 flex justify-between font-semibold">
                         <span>Total</span>
-                        <span>$149.98</span>
+                        <span>${totalPrice}</span>
                     </div>
                 </div>
                 <button className="w-full mt-6 bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Proceed to Checkout</button>
