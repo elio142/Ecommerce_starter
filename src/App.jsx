@@ -7,7 +7,7 @@ import Home from "./pages/home"
 import { Routes, Route } from "react-router-dom";
 import Favorites from "./pages/Favorites";
 import Cart from "./pages/Cart";
-import AuthProvider from "./context/AuthProvider";
+import AuthProvider from "./context/AuthContext";
 import CartProvider from "./context/CartContext";
 import Checkout from "./pages/Checkout";
 
