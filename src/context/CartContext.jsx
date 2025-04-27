@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createContext } from 'react';
+import { initialProducts } from '../lib/data';
 
 // Create the Context object
 export const CartContext = createContext();
@@ -55,7 +56,14 @@ export default function CartProvider({ children }) {
 
 
   // const totalItems = cart.reduce((total, item) => total + (item.quantity || 0), 0);
-  // const totalPrice = cart.reduce((total, item) => total + (item.price * (item.quantity || 0)), 0);
+  const totalPrice = cart.reduce((total, item) => {
+    const product = initialProducts.find(p => p.id === item.id);
+    if (product) {
+      return total + product.price * item.quantity;
+    }
+    return total;
+  }, 0).toFixed(2);
+
 
 
   return (
@@ -66,7 +74,7 @@ export default function CartProvider({ children }) {
       updateItemQuantity,
       clearCart,
       // totalItems,
-      // totalPrice,
+      totalPrice,
     }}>
       {children}
     </CartContext.Provider>

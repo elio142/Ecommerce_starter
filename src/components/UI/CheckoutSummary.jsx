@@ -4,21 +4,7 @@ import { initialProducts } from "../../lib/data";
 
 export default function CheckoutSummary() {
 
-    const { cartItems } = useCart();
-    const [totalPrice, setTotalPrice] = useState('0.00');
-
-    useEffect(() => {
-        const calculatedTotalPrice = cartItems.reduce((total, item) => {
-            const product = initialProducts.find(p => p.id === item.id);
-            if (product) {
-                return total + product.price * item.quantity;
-            }
-            return total;
-        }, 0);
-
-        setTotalPrice(calculatedTotalPrice.toFixed(2));
-        console.log('Total Price Updated:', calculatedTotalPrice.toFixed(2));
-    }, [cartItems, initialProducts]);
+    const { cartItems, totalPrice } = useCart();
 
 
     return (

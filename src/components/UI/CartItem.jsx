@@ -1,7 +1,5 @@
 import { initialProducts } from "../../lib/data";
 import { useCart } from "../../hooks/useCart";
-import { useState } from "react";
-
 
 export default function CartItem({ item }) {
     const { cartItems, removeItem, updateItemQuantity } = useCart();
@@ -16,7 +14,6 @@ export default function CartItem({ item }) {
     function decrementItemCount() {
         updateItemQuantity(id, quantity - 1);
     }
-
 
     return (
         <div className="flex items-center p-6 border-b last:border-b-0">

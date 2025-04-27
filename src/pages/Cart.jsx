@@ -1,5 +1,4 @@
 import { useCart } from "../hooks/useCart";
-import { initialProducts } from "../lib/data";
 import CartItem from "../components/UI/CartItem";
 import EmptyCart from "../components/blocks/EmptyCart";
 import CheckoutSummary from "../components/UI/CheckoutSummary";
