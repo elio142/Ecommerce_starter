@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useCart } from "../../hooks/useCart";
 
 export default function PaymentSummary() {
@@ -23,7 +24,9 @@ export default function PaymentSummary() {
                         <span>${totalPrice}</span>
                     </div>
                 </div>
-                <button className="w-full mt-6 bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Proceed to Checkout</button>
+                <Link to="/Checkout">
+                    <button className="cursor-pointer w-full mt-6 bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Proceed to Checkout</button>
+                </Link>
             </div>
         </div>
     )

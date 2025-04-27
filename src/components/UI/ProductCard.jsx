@@ -37,7 +37,8 @@ export default function ProductCard({ id, product, onRemoveFavorite }) {
 
     if (isWishlisted) {
       wishlistArray = wishlistArray.filter(id => id !== productData.id);
-      onRemoveFavorite(productData.id);
+      if (onRemoveFavorite)
+        onRemoveFavorite(productData.id);
     } else {
       wishlistArray.push(productData.id);
     }
@@ -55,7 +56,7 @@ export default function ProductCard({ id, product, onRemoveFavorite }) {
           alt={productData.name}
           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
         />
-        <button onClick={handleWishlistToggle} className="absolute top-2 right-2 p-2 rounded-full bg-white shadow-md hover:bg-gray-100">
+        <button onClick={handleWishlistToggle} className="cursor-pointer absolute top-2 right-2 p-2 rounded-full bg-white shadow-md hover:bg-gray-100">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -66,7 +67,7 @@ export default function ProductCard({ id, product, onRemoveFavorite }) {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className={`lucide lucide-heart w-5 h-5 cursor-pointer ${isWishlisted ? 'fill-red-500 text-red-500' : 'text-gray-600'}`}
+            className={`lucide lucide-heart w-5 h-5 ${isWishlisted ? 'fill-red-500 text-red-500' : 'text-gray-600'}`}
           >
             <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
           </svg>
