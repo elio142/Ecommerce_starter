@@ -25,7 +25,7 @@ export default function AuthPage() {
       ) {
         signIn(storedUser);
         setMessage("✅ Successfully signed in!");
-        navigate("/"); // لما يسجل دخول يرجع للصفحة الرئيسية
+        navigate("/");
       } else {
         setMessage("❌ Invalid credentials!");
       }
