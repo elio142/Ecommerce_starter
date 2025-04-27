@@ -1,6 +1,6 @@
 import SignIn from "./pages/signIn";
 import Categories from "./pages/Categories";
-import Contact from "./pages/Contact"
+import Contact from "./pages/Contact";
 import Navbar from "./components/common/Navbar";
 import Footer from "./components/common/Footer";
 import Home from "./pages/home"
@@ -32,4 +32,5 @@ function App() {
     </div>
   );
 }
+
 export default App;

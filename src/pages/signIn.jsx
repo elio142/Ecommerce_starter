@@ -1,6 +1,11 @@
 import React, { useState } from "react";
+import useAuth from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 export default function AuthPage() {
+  const { user, signIn } = useAuth();
+  const navigate = useNavigate();
+
   const [isSignIn, setIsSignIn] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,7 +23,9 @@ export default function AuthPage() {
         storedUser.email === email &&
         storedUser.password === password
       ) {
+        signIn(storedUser);
         setMessage("✅ Successfully signed in!");
+        navigate("/");
       } else {
         setMessage("❌ Invalid credentials!");
       }
@@ -29,10 +36,9 @@ export default function AuthPage() {
         JSON.stringify({ email: email, password: password })
       );
       setMessage("✅ Account created! You can now sign in.");
-      setIsSignIn(true); // Optionally switch to sign in after registration
+      setIsSignIn(true);
     }
 
-    // Clear fields
     setEmail("");
     setPassword("");
   };
