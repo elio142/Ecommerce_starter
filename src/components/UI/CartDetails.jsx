@@ -1,8 +1,8 @@
 import React from 'react';
-import { useCart } from '../../hooks/useCart';
+import { useCart } from '../../hooks/useCart.js';
 import { initialProducts } from '../../lib/data.js';
 
-export default function OrderSummary() {
+export default function CartDetails() {
     const { cartItems, totalPrice } = useCart();
 
     return (

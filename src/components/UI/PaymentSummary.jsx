@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
 import { useCart } from "../../hooks/useCart";
-import { initialProducts } from "../../lib/data";
 
-export default function CheckoutSummary() {
+export default function PaymentSummary() {
 
     const { cartItems, totalPrice } = useCart();
 

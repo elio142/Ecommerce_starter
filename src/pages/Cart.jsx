@@ -1,7 +1,7 @@
 import { useCart } from "../hooks/useCart";
 import CartItem from "../components/UI/CartItem";
 import EmptyCart from "../components/blocks/EmptyCart";
-import CheckoutSummary from "../components/UI/CheckoutSummary";
+import PaymentSummary from "../components/UI/PaymentSummary";
 
 
 export default function Cart() {
@@ -21,7 +21,7 @@ export default function Cart() {
                                     ))}
                                 </div>
                             </div>
-                            <CheckoutSummary />
+                            <PaymentSummary />
                         </div>
                     </>
                 ) : (
