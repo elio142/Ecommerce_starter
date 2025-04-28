@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import{ useAuth } from "../hooks/useAuth";
+import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
 export default function AuthPage() {
@@ -16,14 +16,15 @@ export default function AuthPage() {
 
     if (isSignIn) {
       // Sign In
-      const storedUser = JSON.parse(localStorage.getItem("user"));
+      const users = JSON.parse(localStorage.getItem("users")) || [];
 
-      if (
-        storedUser &&
-        storedUser.email === email &&
-        storedUser.password === password
-      ) {
-        signIn(storedUser);
+      const foundUser = users.find(
+        (u) => u.email === email && u.password === password
+      );
+
+      if (foundUser) {
+        localStorage.setItem("user", JSON.stringify(foundUser));
+        signIn(foundUser);
         setMessage("✅ Successfully signed in!");
         navigate("/");
       } else {
@@ -31,12 +32,27 @@ export default function AuthPage() {
       }
     } else {
       // Sign Up
-      localStorage.setItem(
-        "user",
-        JSON.stringify({ email: email, password: password })
-      );
-      setMessage("✅ Account created! You can now sign in.");
-      setIsSignIn(true);
+      const newUser = { email: email, password: password };
+
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+
+      // Check if email already exists
+      const emailExists = users.some((u) => u.email === email);
+
+      if (emailExists) {
+        setMessage("❌ Email already exists! Please sign in.");
+        setIsSignIn(true);
+      } else {
+        users.push(newUser);
+        localStorage.setItem("users", JSON.stringify(users));
+
+        // تسجيل دخول مباشر بعد إنشاء الحساب
+        localStorage.setItem("user", JSON.stringify(newUser));
+        signIn(newUser);
+
+        setMessage("✅ Account created and signed in!");
+        navigate("/");
+      }
     }
 
     setEmail("");
