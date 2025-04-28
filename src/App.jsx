@@ -10,8 +10,8 @@ import Cart from "./pages/Cart";
 import AuthProvider from "./context/AuthContext";
 import CartProvider from "./context/CartContext";
 import Checkout from "./pages/Checkout";
-import ProtectedRoute from "./components/blocks/ProtectedRoute"; // <<--- IMPORT IT!
 import SignInToFavorites from "./components/blocks/SignInToFavorites";
+import SignInToCheckout from "./components/blocks/SignInToCheckout";
 
 function App() {
   return (
@@ -26,6 +26,7 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/SignIn" element={<SignIn />} />
             <Route path="/SignInToFavorites" element={<SignInToFavorites />} />
+            <Route path="/SignInToCheckout" element={<SignInToCheckout />} />
             {/* Protected Pages */}
             <Route
               path="/favorites"

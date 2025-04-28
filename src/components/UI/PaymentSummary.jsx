@@ -1,10 +1,19 @@
-import { Link } from "react-router-dom";
 import { useCart } from "../../hooks/useCart";
+import { useAuth } from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 export default function PaymentSummary() {
-
     const { cartItems, totalPrice } = useCart();
+    const { user } = useAuth(); // جلب حالة المستخدم
+    const navigate = useNavigate();
 
+    const handleProceedToCheckout = () => {
+        if (user) {
+            navigate("/Checkout"); // إذا مسجل دخول خذه على صفحة الشيك أوت
+        } else {
+            navigate("/SignInToCheckout"); // إذا مش مسجل دخوله خذه على صفحة تطلب تسجيل دخول
+        }
+    };
 
     return (
         <div className="lg:col-span-4">
@@ -24,10 +33,14 @@ export default function PaymentSummary() {
                         <span>${totalPrice}</span>
                     </div>
                 </div>
-                <Link to="/Checkout">
-                    <button className="cursor-pointer w-full mt-6 bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Proceed to Checkout</button>
-                </Link>
+
+                <button
+                    onClick={handleProceedToCheckout}
+                    className="cursor-pointer w-full mt-6 bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                >
+                    Proceed to Checkout
+                </button>
             </div>
         </div>
-    )
+    );
 }
