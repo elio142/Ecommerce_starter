@@ -1,6 +1,8 @@
 import React from "react";
 import ProductCard from "../UI/ProductCard";
 import { initialProducts } from "../../lib/data";
+import { Link } from "react-router-dom";
+
 
 export default function FeaturedProducts() {
   const featured = initialProducts.slice(0, 4); // Get first 4 products
@@ -18,9 +20,12 @@ export default function FeaturedProducts() {
       </div>
 
       <div className="text-center mt-8">
+        <Link
+        to="/Categories">
         <button className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
           View All Products
         </button>
+        </Link>
       </div>
     </section>
   );

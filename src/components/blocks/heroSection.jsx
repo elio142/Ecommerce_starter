@@ -22,7 +22,7 @@ export default function Hero() {
           Discover amazing products at great prices
         </p>
         <Link
-          to="/shop"
+          to="/Categories"
           className="flex items-center text-lg px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition"
         >
           <ShoppingBag className="h-5 w-5 mr-2" />

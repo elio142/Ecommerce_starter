@@ -1,8 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom"; 
 import Category from "../UI/CategoryCard";
 import { categories } from "../../lib/data";
-
-// Use lowercase keys for safe lookup
 
 export default function FeaturedCategories() {
   return (
@@ -10,9 +9,16 @@ export default function FeaturedCategories() {
       <h2 className="text-3xl font-bold text-center mb-12">
         Featured Categories
       </h2>
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {categories.map((cat) => (
-          <Category key={cat?.id} title={cat?.name} url={cat?.image_url} />
+          <Link 
+            to="/categories" 
+            key={cat?.id}
+            className="block" 
+          >
+            <Category title={cat?.name} url={cat?.image_url} />
+          </Link>
         ))}
       </div>
     </section>
