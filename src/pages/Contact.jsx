@@ -1,8 +1,7 @@
-// src/components/Contact.jsx
-
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { Mail, Phone, MapPin } from "lucide-react";
+
 
 export default function Contact() {
   const form = useRef();
@@ -68,7 +67,7 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h1 className="text-4xl font-bold text-center mb-12">Contact Us</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          
+
           {/* ——— Form Column ——— */}
           <div>
             <h2 className="text-2xl font-semibold mb-6">Get in Touch</h2>
@@ -124,9 +123,8 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={sending}
-                className={`w-full py-2 rounded-md text-white ${
-                  sending ? "bg-gray-400" : "bg-blue-600 hover:bg-blue-700"
-                }`}
+                className={`w-full py-2 rounded-md text-white ${sending ? "bg-gray-400" : "bg-blue-600 hover:bg-blue-700"
+                  }`}
               >
                 {sending ? "Sending…" : "Send Message"}
               </button>

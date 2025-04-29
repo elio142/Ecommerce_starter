@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import ProductCard from "../components/UI/ProductCard";
-import { initialProducts } from "../lib/data";
 import EmptyFavorites from "../components/blocks/EmptyFavorites";
 
 export default function Favorites() {
   const [wishlistArray, setWishlistArray] = useState([]);
 
+
   useEffect(() => {
     const storedWishlist = localStorage.getItem("wishlist");
     setWishlistArray(storedWishlist ? JSON.parse(storedWishlist) : []);
   }, []);
+
 
   const handleRemoveFavorite = (productIdToRemove) => {
     const updatedWishlist = wishlistArray.filter(id => id !== productIdToRemove);
