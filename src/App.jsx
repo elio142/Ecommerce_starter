@@ -19,30 +19,26 @@ function App() {
       <AuthProvider>
         <CartProvider>
           <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/Categories" element={<Categories />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/SignIn" element={<SignIn />} />
-            <Route path="/SignInToFavorites" element={<SignInToFavorites />} />
-            <Route path="/SignInToCheckout" element={<SignInToCheckout />} />
-            {/* Protected Pages */}
-            <Route
-              path="/favorites"
-              element={
-                <Favorites />
-              }
-            />
-            <Route
-              path="/Checkout"
-              element={
-                
-                  <Checkout />
-                
-              }
-            />
-          </Routes>
+          <main className="flex-grow">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/Categories" element={<Categories />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/SignIn" element={<SignIn />} />
+              <Route path="/SignInToFavorites" element={<SignInToFavorites />} />
+              <Route path="/SignInToCheckout" element={<SignInToCheckout />} />
+              {/* Protected Pages */}
+              <Route
+                path="/favorites"
+                element={<Favorites />}
+              />
+              <Route
+                path="/Checkout"
+                element={<Checkout />}
+              />
+            </Routes>
+          </main>
           <Footer />
         </CartProvider>
       </AuthProvider>

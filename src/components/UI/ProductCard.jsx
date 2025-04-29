@@ -6,7 +6,6 @@ export default function ProductCard({ id, product, onRemoveFavorite }) {
   let productData;
   const [isWishlisted, setIsWishlisted] = useState(false);
 
-  // get .addItem method from useCart
   const { addItem } = useCart();
 
   if (product) {

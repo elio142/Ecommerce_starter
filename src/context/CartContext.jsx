@@ -54,8 +54,8 @@ export default function CartProvider({ children }) {
     setCart([]);
   };
 
+  // const totalItems = Array.isArray(cart) ? cart.reduce((total, item) => total + item.quantity, 0) : 0;
 
-  // const totalItems = cart.reduce((total, item) => total + (item.quantity || 0), 0);
   const totalPrice = cart.reduce((total, item) => {
     const product = initialProducts.find(p => p.id === item.id);
     if (product) {

@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
+
 export default function AuthPage() {
-  const { user, signIn } = useAuth();
+  const { signIn } = useAuth();
   const navigate = useNavigate();
 
   const [isSignIn, setIsSignIn] = useState(true);
