@@ -12,31 +12,31 @@ export default function Checkout() {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label className="block text-sm font-medium text-gray-700">First Name</label>
-                                <input type="text" name="firstName" required="" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" value="" />
+                                <input type="text" name="firstName" required="" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" />
                             </div>
                             <div>
                                 <label className="block text-sm font-medium text-gray-700">Last Name</label>
-                                <input type="text" name="lastName" required="" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" value="" />
+                                <input type="text" name="lastName" required="" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" />
                             </div>
                             <div className="md:col-span-2">
                                 <label className="block text-sm font-medium text-gray-700">Email</label>
-                                <input type="email" name="email" required="" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" value="email@email.com" />
+                                <input type="email" name="email" required="" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" />
                             </div>
                             <div className="md:col-span-2">
                                 <label className="block text-sm font-medium text-gray-700">Address</label>
-                                <input type="text" name="address" required="" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" value="" />
+                                <input type="text" name="address" required="" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"/>
                             </div>
                             <div>
                                 <label className="block text-sm font-medium text-gray-700">City</label>
-                                <input type="text" name="city" required="" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" value="" />
+                                <input type="text" name="city" required="" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" />
                             </div>
                             <div>
                                 <label className="block text-sm font-medium text-gray-700">Postal Code</label>
-                                <input type="text" name="postalCode" required="" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" value="" />
+                                <input type="text" name="postalCode" required="" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"/>
                             </div>
                             <div className="md:col-span-2">
                                 <label className="block text-sm font-medium text-gray-700">Country</label>
-                                <input type="text" name="country" required="" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" value="" />
+                                <input type="text" name="country" required="" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" />
                             </div>
                         </div>
                     </div>
@@ -45,16 +45,16 @@ export default function Checkout() {
                         <div className="space-y-6">
                             <div>
                                 <label className="block text-sm font-medium text-gray-700">Card Number</label>
-                                <input type="text" name="cardNumber" required="" placeholder="1234 5678 9012 3456" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" value="" />
+                                <input type="text" name="cardNumber" required="" placeholder="1234 5678 9012 3456" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" />
                             </div>
                             <div className="grid grid-cols-2 gap-6">
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700">Expiry Date</label>
-                                    <input type="text" name="expiryDate" required="" placeholder="MM/YY" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" value="" />
+                                    <input type="text" name="expiryDate" required="" placeholder="MM/YY" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" />
                                 </div>
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700">CVV</label>
-                                    <input type="text" name="cvv" required="" placeholder="123" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" value="" />
+                                    <input type="text" name="cvv" required="" placeholder="123" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" />
                                 </div>
                             </div>
                         </div>
