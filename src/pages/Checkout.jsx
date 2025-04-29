@@ -1,5 +1,4 @@
 import CartDetails from "../components/UI/CartDetails";
-import SignInToCheckout from "../components/blocks/SignInToCheckout";
 
 
 export default function Checkout() {

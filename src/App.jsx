@@ -12,6 +12,8 @@ import CartProvider from "./context/CartContext";
 import Checkout from "./pages/Checkout";
 import SignInToFavorites from "./components/blocks/SignInToFavorites";
 import SignInToCheckout from "./components/blocks/SignInToCheckout";
+import ProtectedRoute from "./components/blocks/ProtectedRoute";
+
 
 function App() {
   return (
@@ -29,17 +31,20 @@ function App() {
             <Route path="/SignInToCheckout" element={<SignInToCheckout />} />
             {/* Protected Pages */}
             <Route
-              path="/favorites"
-              element={
-                <Favorites />
-              }
-            />
-            <Route
               path="/Checkout"
               element={
-                
+                <ProtectedRoute fallback={<SignInToCheckout />}>
                   <Checkout />
-                
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/Favorites"
+              element={
+                <ProtectedRoute fallback={<SignInToFavorites />}>
+                  <Favorites />
+                </ProtectedRoute>
               }
             />
           </Routes>

@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
-import { useAuth } from "../hooks/useAuth"; // استدعاء useAuth
 import ProductCard from "../components/UI/ProductCard";
 import { initialProducts } from "../lib/data";
 import EmptyFavorites from "../components/blocks/EmptyFavorites";
-import SignInToFavorites from "../components/blocks/SignInToFavorites";
 
 export default function Favorites() {
-  const { user, loading } = useAuth(); // جلب بيانات المستخدم وحالة التحميل
   const [wishlistArray, setWishlistArray] = useState([]);
 
   useEffect(() => {
@@ -19,16 +16,6 @@ export default function Favorites() {
     localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
     setWishlistArray(updatedWishlist);
   };
-
-  // عرض صفحة تحميل أثناء انتظار استرجاع بيانات المستخدم
-  if (loading) {
-    return <div>جاري التحميل...</div>;
-  }
-
-  // إذا كان المستخدم غير مسجل الدخول، إظهار صفحة تسجيل الدخول للمفضلة
-  if (!user) {
-    return <SignInToFavorites />;
-  }
 
   return (
     <div>
