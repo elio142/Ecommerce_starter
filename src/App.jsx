@@ -17,10 +17,11 @@ import ProtectedRoute from "./components/blocks/ProtectedRoute";
 
 function App() {
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <AuthProvider>
         <CartProvider>
           <Navbar />
+          <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/Categories" element={<Categories />} />
@@ -48,6 +49,7 @@ function App() {
               }
             />
           </Routes>
+          </main>
           <Footer />
         </CartProvider>
       </AuthProvider>
