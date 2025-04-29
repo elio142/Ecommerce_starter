@@ -12,6 +12,7 @@ import CartProvider from "./context/CartContext";
 import Checkout from "./pages/Checkout";
 import SignInToFavorites from "./components/blocks/SignInToFavorites";
 import SignInToCheckout from "./components/blocks/SignInToCheckout";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   return (
@@ -37,7 +38,9 @@ function App() {
                 path="/Checkout"
                 element={<Checkout />}
               />
+              <Route path="*" element={<NotFoundPage />} />
             </Routes>
+
           </main>
           <Footer />
         </CartProvider>

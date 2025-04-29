@@ -17,7 +17,6 @@ export default function CartProvider({ children }) {
 
 
   function addItem(productID) {
-    console.log(productID);
     const existingItemIndex = cart.findIndex(item => item.id === productID);
 
     if (existingItemIndex > -1) {

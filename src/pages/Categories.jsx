@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { initialProducts } from "../lib/data";
+import { categories } from "../lib/data";
 import Product from "../components/UI/ProductCard";
 
 
@@ -29,10 +30,11 @@ export default function Categories() {
                         onChange={(e) => setSelectedCategory(e.target.value)}
                     >
                         <option value="">All Categories</option>
-                        <option value="Electronics">Electronics</option>
-                        <option value="Sports">Sports</option>
-                        <option value="Home">Home</option>
-                        <option value="Accessories">Accessories</option>
+                        {categories.length > 0 && (
+                            categories.map(category => (
+                                <option key={category.id} value={category.name}>{category.name}</option>
+                            ))
+                        )}
                     </select>
                 </div>
                 <div>
