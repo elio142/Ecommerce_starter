@@ -1,4 +1,3 @@
-import React from 'react';
 import { Search, Heart, ShoppingCart, User, LogOut } from 'lucide-react';
 import { useAuth } from '../../hooks/useAuth';
 import { Link } from "react-router-dom";

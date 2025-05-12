@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom"; 
 import Category from "../UI/CategoryCard";
 import { categories } from "../../lib/data";

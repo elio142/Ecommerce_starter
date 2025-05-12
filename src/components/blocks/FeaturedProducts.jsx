@@ -1,4 +1,3 @@
-import React from "react";
 import ProductCard from "../UI/ProductCard";
 import { initialProducts } from "../../lib/data";
 import { Link } from "react-router-dom";

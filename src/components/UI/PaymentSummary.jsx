@@ -4,14 +4,14 @@ import { useNavigate } from "react-router-dom";
 
 export default function PaymentSummary() {
     const { cartItems, totalPrice } = useCart();
-    const { user } = useAuth(); // جلب حالة المستخدم
+    const { user } = useAuth();
     const navigate = useNavigate();
 
     const handleProceedToCheckout = () => {
         if (user) {
-            navigate("/Checkout"); // إذا مسجل دخول خذه على صفحة الشيك أوت
+            navigate("/Checkout");
         } else {
-            navigate("/SignInToCheckout"); // إذا مش مسجل دخوله خذه على صفحة تطلب تسجيل دخول
+            navigate("/SignInToCheckout");
         }
     };
 
