@@ -22,7 +22,7 @@ export default function CartDetails() {
                             </div>
                         );
                     })}
-                    <div className="border-t pt-4 flex justify-between font-semibold">
+                    <div className="border-t pt-4 flex justify-between font-semibold border-gray-300">
                         <span>Total</span>
                         <span>${totalPrice}</span>
                     </div>
