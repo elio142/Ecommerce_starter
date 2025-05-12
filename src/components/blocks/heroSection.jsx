@@ -13,7 +13,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-black/50" />
 
       {/* Content */}
-      <div className="relative max-w-7xl flex flex-col items-start justify-center h-full mx-auto px-4">
+      <div className="relative max-w-7xl flex flex-col items-start justify-center h-full mx-auto px-8">
         <h1 className="text-white text-4xl md:text-6xl font-bold mb-4">
           Welcome to ShopHub
         </h1>

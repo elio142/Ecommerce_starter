@@ -63,122 +63,120 @@ export default function Contact() {
   };
 
   return (
-    <main className="flex-grow">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h1 className="text-4xl font-bold text-center mb-12">Contact Us</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <h1 className="text-4xl font-bold text-center mb-12">Contact Us</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
 
-          {/* ——— Form Column ——— */}
-          <div>
-            <h2 className="text-2xl font-semibold mb-6">Get in Touch</h2>
-            <form ref={form} onSubmit={sendEmail} className="space-y-6">
-              {/* Honeypot (hidden) */}
-              <input type="text" name="honey" autoComplete="off" tabIndex="-1" className="hidden" />
+        {/* ——— Form Column ——— */}
+        <div>
+          <h2 className="text-2xl font-semibold mb-6">Get in Touch</h2>
+          <form ref={form} onSubmit={sendEmail} className="space-y-6">
+            {/* Honeypot (hidden) */}
+            <input type="text" name="honey" autoComplete="off" tabIndex="-1" className="hidden" />
 
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  name="user_name"
-                  id="name"
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                />
-                {errors.user_name && (
-                  <p className="text-red-600 text-sm mt-1">{errors.user_name}</p>
-                )}
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="user_email"
-                  id="email"
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                />
-                {errors.user_email && (
-                  <p className="text-red-600 text-sm mt-1">{errors.user_email}</p>
-                )}
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="4"
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                />
-                {errors.message && (
-                  <p className="text-red-600 text-sm mt-1">{errors.message}</p>
-                )}
-              </div>
-
-              <button
-                type="submit"
-                disabled={sending}
-                className={`w-full py-2 rounded-md text-white ${sending ? "bg-gray-400" : "bg-blue-600 hover:bg-blue-700"
-                  }`}
-              >
-                {sending ? "Sending…" : "Send Message"}
-              </button>
-            </form>
-          </div>
-
-          {/* ——— Info Column ——— */}
-          <div>
-            <h2 className="text-2xl font-semibold mb-6">Contact Information</h2>
-            <div className="space-y-6">
-              <div className="flex items-start">
-                <Mail className="w-6 h-6 text-blue-600 mr-4" />
-                <div>
-                  <h3 className="font-medium">Email</h3>
-                  <p className="text-gray-600">support@shophub.com</p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <Phone className="w-6 h-6 text-blue-600 mr-4" />
-                <div>
-                  <h3 className="font-medium">Phone</h3>
-                  <p className="text-gray-600">(555) 123-4567</p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <MapPin className="w-6 h-6 text-blue-600 mr-4" />
-                <div>
-                  <h3 className="font-medium">Address</h3>
-                  <p className="text-gray-600">
-                    123 Shop Street
-                    <br />
-                    City, Country
-                  </p>
-                </div>
-              </div>
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                Name
+              </label>
+              <input
+                type="text"
+                name="user_name"
+                id="name"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              />
+              {errors.user_name && (
+                <p className="text-red-600 text-sm mt-1">{errors.user_name}</p>
+              )}
             </div>
-            <div className="mt-8">
-              <h2 className="text-2xl font-semibold mb-6">Business Hours</h2>
-              <div className="space-y-2">
-                <p>
-                  <span className="font-medium">Monday – Friday:</span> 9:00 AM – 6:00 PM
-                </p>
-                <p>
-                  <span className="font-medium">Saturday:</span> 10:00 AM – 4:00 PM
-                </p>
-                <p>
-                  <span className="font-medium">Sunday:</span> Closed
-                </p>
-              </div>
-            </div>
-          </div>
 
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                Email
+              </label>
+              <input
+                type="email"
+                name="user_email"
+                id="email"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              />
+              {errors.user_email && (
+                <p className="text-red-600 text-sm mt-1">{errors.user_email}</p>
+              )}
+            </div>
+
+            <div>
+              <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              />
+              {errors.message && (
+                <p className="text-red-600 text-sm mt-1">{errors.message}</p>
+              )}
+            </div>
+
+            <button
+              type="submit"
+              disabled={sending}
+              className={`w-full py-2 rounded-md text-white ${sending ? "bg-gray-400" : "bg-blue-600 hover:bg-blue-700"
+                }`}
+            >
+              {sending ? "Sending…" : "Send Message"}
+            </button>
+          </form>
         </div>
+
+        {/* ——— Info Column ——— */}
+        <div>
+          <h2 className="text-2xl font-semibold mb-6">Contact Information</h2>
+          <div className="space-y-6">
+            <div className="flex items-start">
+              <Mail className="w-6 h-6 text-blue-600 mr-4" />
+              <div>
+                <h3 className="font-medium">Email</h3>
+                <p className="text-gray-600">support@shophub.com</p>
+              </div>
+            </div>
+            <div className="flex items-start">
+              <Phone className="w-6 h-6 text-blue-600 mr-4" />
+              <div>
+                <h3 className="font-medium">Phone</h3>
+                <p className="text-gray-600">(555) 123-4567</p>
+              </div>
+            </div>
+            <div className="flex items-start">
+              <MapPin className="w-6 h-6 text-blue-600 mr-4" />
+              <div>
+                <h3 className="font-medium">Address</h3>
+                <p className="text-gray-600">
+                  123 Shop Street
+                  <br />
+                  City, Country
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="mt-8">
+            <h2 className="text-2xl font-semibold mb-6">Business Hours</h2>
+            <div className="space-y-2">
+              <p>
+                <span className="font-medium">Monday – Friday:</span> 9:00 AM – 6:00 PM
+              </p>
+              <p>
+                <span className="font-medium">Saturday:</span> 10:00 AM – 4:00 PM
+              </p>
+              <p>
+                <span className="font-medium">Sunday:</span> Closed
+              </p>
+            </div>
+          </div>
+        </div>
+
       </div>
-    </main>
+    </div>
   );
 }

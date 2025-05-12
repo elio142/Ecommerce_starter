@@ -4,6 +4,7 @@ import Contact from "./pages/Contact";
 import Navbar from "./components/common/Navbar";
 import Footer from "./components/common/Footer";
 import Home from "./pages/home";
+import NotFoundPage from "./pages/NotFoundPage";
 import { Routes, Route } from "react-router-dom";
 import Favorites from "./pages/Favorites";
 import Cart from "./pages/Cart";
