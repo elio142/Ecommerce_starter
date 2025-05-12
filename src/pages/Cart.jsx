@@ -16,7 +16,7 @@ export default function Cart() {
                         <div className="lg:col-span-8">
                             <div className="bg-white shadow-sm rounded-lg">
                                 {cartItems.map(cartItem => (
-                                    <CartItem item={cartItem} key={cartItem.id} />
+                                    <CartItem key={cartItem.id} item={cartItem} />
                                 ))}
                             </div>
                         </div>

@@ -13,7 +13,7 @@ export default function FeaturedCategories() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {categories.map((cat) => (
           <Link 
-            to="/categories" 
+            to="/Products" 
             key={cat?.id}
             className="block" 
           >
