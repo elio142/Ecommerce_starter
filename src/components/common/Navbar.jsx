@@ -18,7 +18,7 @@ const Navbar = () => {
                     <div className="text-xl font-bold text-gray-800">ShopHub</div>
                     <div className="hidden md:flex items-center space-x-10">
                         <Link to="/" className="text-gray-900 font-medium px-3 py-2 text-sm rounded-md hover:text-gray-500 transition">Home</Link>
-                        <Link to="/Categories" className="text-gray-900 font-medium px-3 py-2 text-sm rounded-md hover:text-gray-500 transition">Categories</Link>
+                        <Link to="/Products" className="text-gray-900 font-medium px-3 py-2 text-sm rounded-md hover:text-gray-500 transition">Products</Link>
                         <Link to="/Contact" className="text-gray-900 font-medium px-3 py-2 text-sm rounded-md hover:text-gray-500 transition">Contact</Link>
                     </div>
                 </div>

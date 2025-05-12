@@ -11,7 +11,6 @@ import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import SignInToFavorites from "./components/blocks/SignInToFavorites";
 import SignInToCheckout from "./components/blocks/SignInToCheckout";
-import NotFoundPage from "./pages/NotFoundPage";
 import AppProviders from "./context/AppProviders";
 
 function App() {
