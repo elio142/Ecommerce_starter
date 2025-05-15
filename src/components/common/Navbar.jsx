@@ -15,7 +15,7 @@ const Navbar = () => {
         <nav className="bg-white shadow-md sticky top-0 left-0 w-full z-50">
             <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between h-16">
                 <div className="flex items-center space-x-8">
-                    <div className="text-xl font-bold text-gray-800">ShopHub</div>
+                    <Link to="/" className="text-xl font-bold text-gray-800">ShopHub</Link>
                     <div className="hidden md:flex items-center space-x-10">
                         <Link to="/" className="text-gray-900 font-medium px-3 py-2 text-sm rounded-md hover:text-gray-500 transition">Home</Link>
                         <Link to="/products" className="text-gray-900 font-medium px-3 py-2 text-sm rounded-md hover:text-gray-500 transition">Products</Link>

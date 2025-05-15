@@ -11,7 +11,7 @@ export default function CartItem({ item }) {
     function decrementItemCount() { updateItemQuantity(id, quantity - 1); }
 
     return (
-        <div className="flex items-center p-6 border-b last:border-b-0">
+        <div className="flex items-center p-6 border-b last:border-b-0 border-gray-200">
             <img src={productData.image_url} alt={productData.name} className="w-24 h-24 object-cover rounded-md" />
             <div className="ml-6 flex-1">
                 <h3 className="text-lg font-semibold">{productData.name}</h3>
