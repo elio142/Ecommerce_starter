@@ -19,37 +19,37 @@ function App() {
   return (
     <div className="min-h-screen flex flex-col">
       <AppProviders>
-          <Navbar />
-          <main className="flex-grow">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/Products" element={<Products />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/cart" element={<Cart />} />
-              <Route path="/SignIn" element={<SignIn />} />
-              <Route path="/SignInToFavorites" element={<SignInToFavorites />} />
-              <Route path="/SignInToCheckout" element={<SignInToCheckout />} />
-              {/* Protected Pages */}
-              <Route
-                path="/Checkout"
-                element={
-                  <ProtectedRoute fallback={<SignInToCheckout />}>
-                    <Checkout />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/Favorites"
-                element={
-                  <ProtectedRoute fallback={<SignInToFavorites />}>
-                    <Favorites />
-                  </ProtectedRoute>
-                }
-              />
-              <Route path="*" element={<NotFoundPage />} />
-            </Routes>
-          </main>
-          <Footer />
+        <Navbar />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/signintofavorites" element={<SignInToFavorites />} />
+            <Route path="/signintocheckout" element={<SignInToCheckout />} />
+            {/* Protected Pages */}
+            <Route
+              path="/checkout"
+              element={
+                <ProtectedRoute fallback={<SignInToCheckout />}>
+                  <Checkout />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/favorites"
+              element={
+                <ProtectedRoute fallback={<SignInToFavorites />}>
+                  <Favorites />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </main>
+        <Footer />
       </AppProviders>
     </div>
   );

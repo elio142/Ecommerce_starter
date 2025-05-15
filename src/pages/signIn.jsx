@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
@@ -11,6 +11,14 @@ export default function AuthPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    if (isSignIn)
+      document.title = 'Sign In To ShopHub';
+    else
+      document.title = 'Create ShopHub Account';
+  }, [isSignIn]);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();

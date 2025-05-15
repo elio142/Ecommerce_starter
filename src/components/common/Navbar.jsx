@@ -19,7 +19,7 @@ const Navbar = () => {
                     <div className="hidden md:flex items-center space-x-10">
                         <Link to="/" className="text-gray-900 font-medium px-3 py-2 text-sm rounded-md hover:text-gray-500 transition">Home</Link>
                         <Link to="/products" className="text-gray-900 font-medium px-3 py-2 text-sm rounded-md hover:text-gray-500 transition">Products</Link>
-                        <Link to="/Contact" className="text-gray-900 font-medium px-3 py-2 text-sm rounded-md hover:text-gray-500 transition">Contact</Link>
+                        <Link to="/contact" className="text-gray-900 font-medium px-3 py-2 text-sm rounded-md hover:text-gray-500 transition">Contact</Link>
                     </div>
                 </div>
 
@@ -32,10 +32,10 @@ const Navbar = () => {
                         />
                         <Search className="absolute right-3 top-2.5 h-5 w-5 text-gray-400" />
                     </div>
-                    <Link to="/Favorites">
+                    <Link to="/favorites">
                         <Heart className="w-6 h-6 text-gray-600 hover:text-gray-500 cursor-pointer transition" />
                     </Link>
-                    <Link to="/Cart" className="relative">
+                    <Link to="/cart" className="relative">
                         <ShoppingCart className="w-6 h-6 text-gray-600 hover:text-gray-500 cursor-pointer transition" />
                         {totalItems > 0 && (
                             <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
@@ -50,7 +50,7 @@ const Navbar = () => {
                             onClick={signOut}
                         />
                     ) : (
-                        <Link to="/SignIn">
+                        <Link to="/signin">
                             <User className="w-6 h-6 text-gray-600 hover:text-gray-500 cursor-pointer transition" />
                         </Link>
                     )}

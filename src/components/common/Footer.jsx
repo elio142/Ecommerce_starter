@@ -24,10 +24,10 @@ const Footer = () => {
                 <Link to="/" className="text-gray-400 hover:text-white">Home</Link>
               </li>
               <li>
-                <Link to="/Products" className="text-gray-400 hover:text-white">Products</Link>
+                <Link to="/products" className="text-gray-400 hover:text-white">Products</Link>
               </li>
               <li>
-                <Link to="/Contact" className="text-gray-400 hover:text-white">Contact</Link>
+                <Link to="/contact" className="text-gray-400 hover:text-white">Contact</Link>
               </li>
             </ul>
           </div>

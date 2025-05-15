@@ -1,9 +1,13 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 
 export default function Contact() {
+  useEffect(() => {
+    document.title = 'ShopHub | Contact';
+  }, []);
+
   const form = useRef();
   const [sending, setSending] = useState(false);
   const [errors, setErrors] = useState({});

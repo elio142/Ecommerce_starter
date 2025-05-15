@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CartDetails from "../components/UI/CartDetails";
 import { useNavigate } from "react-router-dom";
 
 export default function Checkout() {
+    useEffect(() => {
+        document.title = 'ShopHub | Checkout';
+    }, []);
+
     const navigate = useNavigate();
 
     const [firstName, setFirstName] = useState("");

@@ -5,8 +5,8 @@ import EmptyFavorites from "../components/blocks/EmptyFavorites";
 export default function Favorites() {
   const [wishlistArray, setWishlistArray] = useState([]);
 
-
   useEffect(() => {
+    document.title = 'ShopHub | Favorites';
     const storedWishlist = localStorage.getItem("wishlist");
     setWishlistArray(storedWishlist ? JSON.parse(storedWishlist) : []);
   }, []);

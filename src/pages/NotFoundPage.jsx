@@ -1,7 +1,11 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function NotFoundPage() {
+    useEffect(() => {
+        document.title = 'ShopHub | Page Not Found';
+    }, []);
+
     return (
         <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
             <h1 className="text-6xl font-bold text-red-500 mb-4">404</h1>

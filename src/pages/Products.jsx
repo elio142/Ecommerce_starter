@@ -1,10 +1,14 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { initialProducts } from "../lib/data";
 import { categories } from "../lib/data";
 import Product from "../components/UI/ProductCard";
 
 
 export default function Products() {
+    useEffect(() => {
+        document.title = 'ShopHub | Products';
+    }, []);
+
     const [query, setQuery] = useState("");
     const [minPrice, setMinPrice] = useState(1);
     const [maxPrice, setMaxPrice] = useState(1000);

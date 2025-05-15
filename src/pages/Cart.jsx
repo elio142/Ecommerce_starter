@@ -2,9 +2,14 @@ import { useCart } from "../hooks/useCart";
 import CartItem from "../components/UI/CartItem";
 import EmptyCart from "../components/blocks/EmptyCart";
 import PaymentSummary from "../components/UI/PaymentSummary";
+import { useEffect } from "react";
 
 
 export default function Cart() {
+    useEffect(() => {
+        document.title = 'ShopHub | Your Cart';
+    }, []);
+
     const { cartItems } = useCart();
 
     return (
