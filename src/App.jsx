@@ -1,5 +1,5 @@
 import SignIn from "./pages/signIn";
-import Categories from "./pages/Categories";
+import Products from "./pages/Products";
 import Contact from "./pages/Contact";
 import Navbar from "./components/common/Navbar";
 import Footer from "./components/common/Footer";
@@ -23,7 +23,7 @@ function App() {
           <main className="flex-grow">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/Categories" element={<Categories />} />
+              <Route path="/Products" element={<Products />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/SignIn" element={<SignIn />} />

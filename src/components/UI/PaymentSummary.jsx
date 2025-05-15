@@ -2,7 +2,7 @@ import { useCart } from "../../hooks/useCart";
 import { useNavigate } from "react-router-dom";
 
 export default function PaymentSummary() {
-  const { cartItems, totalPrice } = useCart();
+  const { totalPrice } = useCart();
   const navigate = useNavigate();
 
   const handleProceedToCheckout = () => {

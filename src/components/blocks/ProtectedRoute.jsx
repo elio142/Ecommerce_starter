@@ -1,4 +1,3 @@
-// CustomProtectedRoute.jsx
 import { useAuth } from "../../hooks/useAuth";
 
 export default function CustomProtectedRoute({ children, fallback }) {

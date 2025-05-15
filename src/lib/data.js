@@ -123,6 +123,8 @@ const initialProducts = [
   }
 ];
 
+
+// Sample categories data
 const categories = [
   {
     id: 1,

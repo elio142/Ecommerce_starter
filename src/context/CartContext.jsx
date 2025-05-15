@@ -1,11 +1,9 @@
-import React, { useState, useEffect, createContext } from 'react';
+import { useState, useEffect, createContext } from 'react';
 import { initialProducts } from '../lib/data';
 
-// Create the Context object
 export const CartContext = createContext();
 
-// Create the Provider component
-export default function CartProvider({ children }) {
+export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState(() => {
     const storedCart = localStorage.getItem('cart');
     return storedCart ? JSON.parse(storedCart) : [];

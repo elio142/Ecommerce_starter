@@ -1,4 +1,3 @@
-import React from 'react';
 import { useCart } from '../../hooks/useCart.js';
 import { initialProducts } from '../../lib/data.js';
 

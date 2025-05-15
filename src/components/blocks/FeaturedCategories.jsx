@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom"; 
 import Category from "../UI/CategoryCard";
 import { categories } from "../../lib/data";
@@ -13,7 +12,7 @@ export default function FeaturedCategories() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {categories.map((cat) => (
           <Link 
-            to="/categories" 
+            to="/products" 
             key={cat?.id}
             className="block" 
           >
