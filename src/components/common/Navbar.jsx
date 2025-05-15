@@ -13,7 +13,7 @@ const Navbar = () => {
     const { user, signOut } = auth;
 
     return (
-        <nav className="bg-white shadow-md">
+        <nav className="bg-white shadow-md sticky top-0 left-0 w-full z-50">
             <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between h-16">
                 <div className="flex items-center space-x-8">
                     <div className="text-xl font-bold text-gray-800">ShopHub</div>
