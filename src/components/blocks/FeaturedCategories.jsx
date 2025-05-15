@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 import Category from "../UI/CategoryCard";
 import { categories } from "../../lib/data";
 
@@ -11,10 +11,10 @@ export default function FeaturedCategories() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {categories.map((cat) => (
-          <Link 
-            to="/products" 
+          <Link
+            to={`/products?cat=${encodeURIComponent(cat?.name) || ''}`}
             key={cat?.id}
-            className="block" 
+            className="block"
           >
             <Category title={cat?.name} url={cat?.image_url} />
           </Link>

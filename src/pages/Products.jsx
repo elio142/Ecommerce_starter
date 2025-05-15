@@ -2,12 +2,15 @@ import { useEffect, useState } from "react"
 import { initialProducts } from "../lib/data";
 import { categories } from "../lib/data";
 import Product from "../components/UI/ProductCard";
+import { useSearchParams } from "react-router-dom";
 
 
 export default function Products() {
     useEffect(() => {
         document.title = 'ShopHub | Products';
     }, []);
+
+    const [searchParams] = useSearchParams();
 
     const [query, setQuery] = useState("");
     const [minPrice, setMinPrice] = useState(1);
@@ -21,6 +24,12 @@ export default function Products() {
         const categoryMatch = (selectedCategory) ? (product.category == selectedCategory) : true;
         return (titleMatch || descriptionMatch) && priceMatch && categoryMatch;
     });
+
+    useEffect(() => {
+        // Get the category from the URL on initial load
+        const categoryFromURL = searchParams.get("cat") || "";
+        setSelectedCategory(categoryFromURL);
+    }, [searchParams]);
 
     return <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-8">
