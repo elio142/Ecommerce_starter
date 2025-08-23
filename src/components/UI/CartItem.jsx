@@ -25,14 +25,14 @@ export default function CartItem({ item }) {
                                 </line>
                             </svg>
                         </button>
-                        <div className="flex items-center border rounded-md">
-                            <button onClick={decrementItemCount} className="p-2 hover:bg-gray-100 cursor-pointer">
+                        <div className="flex items-center border  border-gray-200 rounded-md">
+                            <button onClick={decrementItemCount} className="p-2  border-gray-200 hover:bg-gray-100 cursor-pointer">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-minus w-4 h-4">
                                     <path d="M5 12h14"></path>
                                 </svg>
                             </button>
-                            <span className="px-4 py-2 border-x">{quantity}</span>
-                            <button onClick={incrementItemCount} className="p-2 hover:bg-gray-100 cursor-pointer">
+                            <span className="px-4 py-2  border-gray-200 border-x">{quantity}</span>
+                            <button onClick={incrementItemCount} className="p-2  border-gray-200 hover:bg-gray-100 cursor-pointer">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-plus w-4 h-4">
                                     <path d="M5 12h14"></path>
                                     <path d="M12 5v14"></path>
