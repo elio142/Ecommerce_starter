@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import CartDetails from "../components/UI/CartDetails";
 import { useNavigate } from "react-router-dom";
+import { XCircle, CheckCircle } from 'lucide-react';
 
 export default function Checkout() {
     useEffect(() => {
@@ -20,11 +21,28 @@ export default function Checkout() {
     const [expiryDate, setExpiryDate] = useState("");
     const [cvv, setCvv] = useState("");
 
+    const [orderPlaced, setOrderPlaced] = useState(false);
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        alert("Order placed successfully!");
-        navigate("/");
+        setOrderPlaced(true);
     };
+
+    if (orderPlaced) {
+        return (
+            <div className="max-w-2xl mx-auto py-20 text-center">
+                <CheckCircle className="mx-auto text-green-500" size={64} />
+                <h2 className="text-2xl font-bold mt-6 mb-2">Thank you for your order!</h2>
+                <p className="text-gray-600 mb-8">Your order has been placed successfully.</p>
+                <button
+                    className="bg-blue-600 text-white py-2 px-6 rounded-md hover:bg-blue-700"
+                    onClick={() => navigate("/")}
+                >
+                    Back to Home
+                </button>
+            </div>
+        );
+    }
 
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
