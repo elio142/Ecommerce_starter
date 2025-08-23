@@ -120,6 +120,114 @@ const initialProducts = [
     price: 49.99,
     category: 'Accessories',
     image_url: 'https://images.unsplash.com/photo-1627123424574-724758594e93?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2FsbGV0fGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60'
+  },
+
+  // Electronics
+  {
+    id: 16,
+    name: 'Bluetooth Speaker',
+    description: 'Portable wireless speaker with deep bass',
+    price: 89.99,
+    category: 'Electronics',
+    image_url: 'https://images.unsplash.com/photo-1589003077984-894e133dabab?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60'
+  },
+  {
+    id: 17,
+    name: 'Tablet',
+    description: 'Lightweight tablet for work and play',
+    price: 399.99,
+    category: 'Electronics',
+    image_url: 'https://images.unsplash.com/photo-1561154464-82e9adf32764?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60'
+  },
+    {
+    id: 24,
+    name: 'Phone',
+    description: 'Lightweight phone for work and play',
+    price: 499.99,
+    category: 'Electronics',
+    image_url: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60'
+  },
+
+  // Fashion
+  {
+    id: 18,
+    name: 'Sneakers',
+    description: 'Trendy sneakers for everyday wear',
+    price: 109.99,
+    category: 'Fashion',
+    image_url: 'https://images.unsplash.com/photo-1534437088728-1e8db7fcef94?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60'
+  },
+  {
+    id: 19,
+    name: 'Summer Jacket',
+    description: 'Light and breezy summer jacket',
+    price: 59.99,
+    category: 'Fashion',
+    image_url: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60'
+  },
+
+  // Home & Kitchen
+  {
+    id: 20,
+    name: 'Blender',
+    description: 'Powerful blender for smoothies and shakes',
+    price: 79.99,
+    category: 'Home & Kitchen',
+    image_url: 'https://plus.unsplash.com/premium_photo-1717749801344-8ed38d55aead?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60'
+  },
+  {
+    id: 21,
+    name: 'Cookware Set',
+    description: 'Non-stick cookware set for all your cooking needs',
+    price: 129.99,
+    category: 'Home & Kitchen',
+    image_url: 'https://images.unsplash.com/photo-1588279102567-67db026f11c0?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60'
+  },
+
+  // Sports
+  {
+    id: 22,
+    name: 'Tennis Racket',
+    description: 'Lightweight tennis racket for all levels',
+    price: 69.99,
+    category: 'Sports',
+    image_url: 'https://images.unsplash.com/photo-1617883861744-13b534e3b928?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60'
+  },
+  {
+    id: 23,
+    name: 'Fitness Tracker',
+    description: 'Track your workouts and health stats',
+    price: 49.99,
+    category: 'Sports',
+    image_url: 'https://plus.unsplash.com/premium_photo-1681433383783-661b519b154a?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60'
+  },
+
+  // Accessories
+  {
+    id: 25,
+    name: 'Scarf',
+    description: 'Soft scarf for chilly days',
+    price: 24.99,
+    category: 'Accessories',
+    image_url: 'https://images.unsplash.com/photo-1485527691629-8e370684924c?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60'
+  },
+
+  // Pet Supplies
+  {
+    id: 26,
+    name: 'Dog Leash',
+    description: 'Durable leash for daily walks',
+    price: 14.99,
+    category: 'Pet Supplies',
+    image_url: 'https://images.unsplash.com/photo-1615394968637-de55ca4b2e64?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60'
+  },
+  {
+    id: 27,
+    name: 'Cat Bed',
+    description: 'Cozy bed for your feline friend',
+    price: 34.99,
+    category: 'Pet Supplies',
+    image_url: 'https://images.unsplash.com/photo-1541188495357-ad2dc89487f4?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60'
   }
 ];
 
@@ -150,6 +258,11 @@ const categories = [
     id: 5,
     name: 'Accessories',
     image_url: "https://images.unsplash.com/photo-1511556820780-d912e42b4980?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGFjY2Vzc29yaWVzfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    id: 6,
+    name: 'Pet Supplies',
+    image_url: 'https://images.unsplash.com/photo-1450778869180-41d0601e046e?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60'
   }
 ];
 
