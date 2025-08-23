@@ -48,8 +48,8 @@ export default function ProductCard({ id, product, onRemoveFavorite }) {
 
 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden group">
-      <div className="relative h-48">
+    <div className="bg-white rounded-lg shadow-md overflow-hidden group flex flex-col group">
+      <div className="relative h-48 flex-shrink-0">
         <img
           src={productData.image_url}
           alt={productData.name}
@@ -72,10 +72,10 @@ export default function ProductCard({ id, product, onRemoveFavorite }) {
           </svg>
         </button>
       </div>
-      <div className="p-4">
+      <div className="p-4 flex flex-col flex-1">
         <h3 className="text-lg font-semibold mb-2">{productData.name}</h3>
-        <p className="text-gray-600 text-sm mb-4">{productData.description}</p>
-        <div className="flex items-center justify-between">
+        <p className="text-gray-600 text-sm mb-4 flex-grow">{productData.description}</p>
+        <div className="flex items-center justify-between mt-auto">
           <span className="text-lg font-bold">${productData.price}</span>
           <button
             className="cursor-pointer px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
