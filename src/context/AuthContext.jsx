@@ -20,8 +20,15 @@ export const AuthProvider = ({ children }) => {
   };
 
   const signOut = () => {
-    localStorage.removeItem("user");
+    // Clear user info
     setUser(null);
+
+    // Reset guest cart & favorites
+    localStorage.removeItem("cart_guest");
+    localStorage.removeItem("wishlist_guest");
+
+     clearCart(); // reset cart state immediately
+     clearFavorites(); // already done
   };
 
   return (

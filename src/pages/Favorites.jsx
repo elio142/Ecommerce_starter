@@ -1,20 +1,25 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import ProductCard from "../components/UI/ProductCard";
 import EmptyFavorites from "../components/blocks/EmptyFavorites";
+import { AuthContext } from "../context/AuthContext";
 
 export default function Favorites() {
+  const { user } = useContext(AuthContext);
+  const userId = user?.id || "guest"; // fallback for not logged in
+  const storageKey = `wishlist_${userId}`;
+
   const [wishlistArray, setWishlistArray] = useState([]);
 
+  // Load wishlist whenever user changes
   useEffect(() => {
-    document.title = 'ShopHub | Favorites';
-    const storedWishlist = localStorage.getItem("wishlist");
+    document.title = "ShopHub | Favorites";
+    const storedWishlist = localStorage.getItem(storageKey);
     setWishlistArray(storedWishlist ? JSON.parse(storedWishlist) : []);
-  }, []);
-
+  }, [storageKey]);
 
   const handleRemoveFavorite = (productIdToRemove) => {
-    const updatedWishlist = wishlistArray.filter(id => id !== productIdToRemove);
-    localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
+    const updatedWishlist = wishlistArray.filter((id) => id !== productIdToRemove);
+    localStorage.setItem(storageKey, JSON.stringify(updatedWishlist));
     setWishlistArray(updatedWishlist);
   };
 
