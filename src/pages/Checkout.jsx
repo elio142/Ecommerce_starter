@@ -22,10 +22,37 @@ export default function Checkout() {
     const [cvv, setCvv] = useState("");
 
     const [orderPlaced, setOrderPlaced] = useState(false);
+    const [validationErrors, setValidationErrors] = useState({}); // New state for validation errors
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        setOrderPlaced(true);
+
+        // Object to store errors
+        const errors = {};
+
+        // Validation logic
+        if (!firstName) errors.firstName = "First name is required.";
+        if (!lastName) errors.lastName = "Last name is required.";
+        if (!email) {
+            errors.email = "Email is required.";
+        } else if (!/\S+@\S+\.\S+/.test(email)) {
+            errors.email = "Email is invalid.";
+        }
+        if (!address) errors.address = "Address is required.";
+        if (!city) errors.city = "City is required.";
+        if (!postalCode) errors.postalCode = "Postal code is required.";
+        if (!country) errors.country = "Country is required.";
+        if (!cardNumber || cardNumber.length < 16) errors.cardNumber = "Card number must be 16 digits.";
+        if (!expiryDate || !/^\d{2}\/\d{2}$/.test(expiryDate)) errors.expiryDate = "Invalid expiry date (MM/YY).";
+        if (!cvv || cvv.length !== 3) errors.cvv = "CVV must be 3 digits.";
+
+        // Update the state with any new errors
+        setValidationErrors(errors);
+
+        // If there are no errors, proceed with placing the order
+        if (Object.keys(errors).length === 0) {
+            setOrderPlaced(true);
+        }
     };
 
     if (orderPlaced) {
@@ -59,10 +86,11 @@ export default function Checkout() {
                                         type="text"
                                         name="firstName"
                                         required
-                                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                        className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 ${validationErrors.firstName ? 'border-red-500' : ''}`}
                                         value={firstName}
                                         onChange={(e) => setFirstName(e.target.value)}
                                     />
+                                    {validationErrors.firstName && <p className="text-red-500 text-sm mt-1">{validationErrors.firstName}</p>}
                                 </div>
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700">Last Name</label>
@@ -70,10 +98,11 @@ export default function Checkout() {
                                         type="text"
                                         name="lastName"
                                         required
-                                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                        className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 ${validationErrors.lastName ? 'border-red-500' : ''}`}
                                         value={lastName}
                                         onChange={(e) => setLastName(e.target.value)}
                                     />
+                                    {validationErrors.lastName && <p className="text-red-500 text-sm mt-1">{validationErrors.lastName}</p>}
                                 </div>
                                 <div className="md:col-span-2">
                                     <label className="block text-sm font-medium text-gray-700">Email</label>
@@ -81,10 +110,11 @@ export default function Checkout() {
                                         type="email"
                                         name="email"
                                         required
-                                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                        className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 ${validationErrors.email ? 'border-red-500' : ''}`}
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                     />
+                                    {validationErrors.email && <p className="text-red-500 text-sm mt-1">{validationErrors.email}</p>}
                                 </div>
                                 <div className="md:col-span-2">
                                     <label className="block text-sm font-medium text-gray-700">Address</label>
@@ -92,10 +122,11 @@ export default function Checkout() {
                                         type="text"
                                         name="address"
                                         required
-                                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                        className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 ${validationErrors.address ? 'border-red-500' : ''}`}
                                         value={address}
                                         onChange={(e) => setAddress(e.target.value)}
                                     />
+                                    {validationErrors.address && <p className="text-red-500 text-sm mt-1">{validationErrors.address}</p>}
                                 </div>
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700">City</label>
@@ -103,10 +134,11 @@ export default function Checkout() {
                                         type="text"
                                         name="city"
                                         required
-                                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                        className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 ${validationErrors.city ? 'border-red-500' : ''}`}
                                         value={city}
                                         onChange={(e) => setCity(e.target.value)}
                                     />
+                                    {validationErrors.city && <p className="text-red-500 text-sm mt-1">{validationErrors.city}</p>}
                                 </div>
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700">Postal Code</label>
@@ -114,10 +146,11 @@ export default function Checkout() {
                                         type="text"
                                         name="postalCode"
                                         required
-                                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                        className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 ${validationErrors.postalCode ? 'border-red-500' : ''}`}
                                         value={postalCode}
                                         onChange={(e) => setPostalCode(e.target.value)}
                                     />
+                                    {validationErrors.postalCode && <p className="text-red-500 text-sm mt-1">{validationErrors.postalCode}</p>}
                                 </div>
                                 <div className="md:col-span-2">
                                     <label className="block text-sm font-medium text-gray-700">Country</label>
@@ -125,10 +158,11 @@ export default function Checkout() {
                                         type="text"
                                         name="country"
                                         required
-                                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                        className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 ${validationErrors.country ? 'border-red-500' : ''}`}
                                         value={country}
                                         onChange={(e) => setCountry(e.target.value)}
                                     />
+                                    {validationErrors.country && <p className="text-red-500 text-sm mt-1">{validationErrors.country}</p>}
                                 </div>
                             </div>
                         </div>
@@ -142,10 +176,11 @@ export default function Checkout() {
                                         name="cardNumber"
                                         required
                                         placeholder="1234 5678 9012 3456"
-                                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                        className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 ${validationErrors.cardNumber ? 'border-red-500' : ''}`}
                                         value={cardNumber}
                                         onChange={(e) => setCardNumber(e.target.value)}
                                     />
+                                    {validationErrors.cardNumber && <p className="text-red-500 text-sm mt-1">{validationErrors.cardNumber}</p>}
                                 </div>
                                 <div className="grid grid-cols-2 gap-6">
                                     <div>
@@ -155,10 +190,11 @@ export default function Checkout() {
                                             name="expiryDate"
                                             required
                                             placeholder="MM/YY"
-                                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                            className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 ${validationErrors.expiryDate ? 'border-red-500' : ''}`}
                                             value={expiryDate}
                                             onChange={(e) => setExpiryDate(e.target.value)}
                                         />
+                                        {validationErrors.expiryDate && <p className="text-red-500 text-sm mt-1">{validationErrors.expiryDate}</p>}
                                     </div>
                                     <div>
                                         <label className="block text-sm font-medium text-gray-700">CVV</label>
@@ -167,10 +203,11 @@ export default function Checkout() {
                                             name="cvv"
                                             required
                                             placeholder="123"
-                                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                            className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 ${validationErrors.cvv ? 'border-red-500' : ''}`}
                                             value={cvv}
                                             onChange={(e) => setCvv(e.target.value)}
                                         />
+                                        {validationErrors.cvv && <p className="text-red-500 text-sm mt-1">{validationErrors.cvv}</p>}
                                     </div>
                                 </div>
                             </div>
