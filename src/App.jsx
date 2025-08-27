@@ -13,6 +13,7 @@ import SignInToFavorites from "./components/blocks/SignInToFavorites";
 import SignInToCheckout from "./components/blocks/SignInToCheckout";
 import ProtectedRoute from "./components/blocks/ProtectedRoute";
 import AppProviders from "./context/AppProviders";
+import ScrollToTop from "./components/common/ScrollToTop";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
     <div className="min-h-screen flex flex-col">
       <AppProviders>
         <Navbar />
+        <ScrollToTop />
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
